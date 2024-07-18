@@ -33,7 +33,7 @@ jobs:
         with:
           java-version: '17'      # See 'Options' section below for all supported versions
           distribution: 'graalvm' # See 'Options' section below for all available distributions
-          version: '23.1.0'
+          # version: '23.1.0'
           github-token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Example step
@@ -45,6 +45,12 @@ jobs:
       
       - name: Example step using Maven plugin  # https://graalvm.github.io/native-build-tools/latest/maven-plugin.html
         run: mvn -Pnative package
+      
+      - name: Print directory
+        run: |
+          pwd
+          ls -lah
+
       
       - name: Upload binary
         uses: actions/upload-artifact@v2
