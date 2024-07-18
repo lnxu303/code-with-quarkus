@@ -56,5 +56,5 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v2
         with:
-          name: quarkus-rest-example
-          path: /home/runner/work/code-with-quarkus/code-with-quarkus/target/code-with-quarkus-1.0.0-SNAPSHOT-native-image-source-jar/code-with-quarkus-1.0.0-SNAPSHOT-runner
+          name: quarkus-rest-example-native-image
+          path: ./target/code-with-quarkus-1.0.0-SNAPSHOT-runner
