@@ -33,12 +33,21 @@ jobs:
         with:
           java-version: '17'      # See 'Options' section below for all supported versions
           distribution: 'graalvm' # See 'Options' section below for all available distributions
+          version: '23.1.0'
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Example step
         run: |
           echo "GRAALVM_HOME: $GRAALVM_HOME"
           echo "JAVA_HOME: $JAVA_HOME"
           java --version
           native-image --version
+      
       - name: Example step using Maven plugin  # https://graalvm.github.io/native-build-tools/latest/maven-plugin.html
         run: mvn -Pnative package
+      
+      - name: Upload binary
+        uses: actions/upload-artifact@v2
+        with:
+          name: quarkus-rest-example
+          path: /home/runner/work/code-with-quarkus/code-with-quarkus/target/code-with-quarkus-1.0.0-SNAPSHOT-native-image-source-jar/code-with-quarkus-1.0.0-SNAPSHOT-runner
